@@ -1,27 +1,35 @@
 import { NO_MATCH } from "../common"
 
 const binarySearch = (items: any[], item: any): number => {
-    var mid = items.length / 2; //var gang
-    var done = false;
-    while(done == false) {
-        if(item != items[mid]) {
-            if(item > items[mid]) {
-                items = items.slice(mid);
-                mid = items.length / 2;
-            }
-            else if(item < items[mid]) {
-                items = items.slice(-mid);
-                mid = items.length / 2;
-            }
+    var found: boolean = false; //var gang
+    var low: number = 0; //VAR GANG
+    var high: number = items.length; //V A R   G A N G
+
+    while(found == false) {
+        var mid: number = (low + high) / 2;
+        if(item == mid) {
+            return mid;
+            found = true
         }
-        else if(item == items[mid]){
-            done = true;
-        }
-        else {
-            done = true
+        else if(low == high) {
             return NO_MATCH;
+            found = true
+        }
+        else if(item < items[mid]) {
+            if(mid == 0) {
+                return NO_MATCH;
+                found = true
+            }
+            high = mid - 1;
+        }
+        else if(item > items[mid]) {
+            if(mid == items.length - 1) {
+                return NO_MATCH;
+                found = true
+            }
+            low = mid + 1
         }
     }
+    return NO_MATCH;
 }
-
 export default binarySearch;
