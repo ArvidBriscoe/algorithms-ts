@@ -1,3 +1,5 @@
+//I was unable to get VSCode to exist for more than 3 seconds at a time so I just hope this functions
+
 import { NO_MATCH } from "../common"
 
 const binarySearch = (items: any[], item: any): number => {
