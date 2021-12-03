@@ -5,7 +5,7 @@ const binarySearch = (items: any[], item: any): number => {
     var low: number = 0; //VAR GANG
     var high: number = items.length; //V A R   G A N G
 
-    while(found == false) {
+    while(found != true) {
         var mid: number = (low + high) / 2;
         if(item == mid) {
             return mid;
